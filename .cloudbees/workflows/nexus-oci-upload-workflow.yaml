@@ -15,8 +15,8 @@ jobs:
       - name: Register Nexus artifact
         uses: cloudbees-io/register-build-artifact@v2
         with:
-          name: aspm-test
-          version: "1.0"
+          name: mlcb-nexus-test
+          version: ${{cloudbees.version}}
           url: nexusoss.saas-preprod.beescloud.com/aspm-test:${{cloudbees.version}}
 
     
