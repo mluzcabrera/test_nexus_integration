@@ -16,7 +16,7 @@ jobs:
         with:
           name: mlcb-nexus-test
           version: ${{cloudbees.version}}
-          url: nexusoss.saas-preprod.beescloud.com/aspm-test:${{cloudbees.version}}
+          url: https://nexusoss.saas-preprod.beescloud.com//aspm-test:${{cloudbees.version}}
       - name: Print output parameter artifact ID from Nexus upload action
         uses: docker://alpine:latest
         shell: sh
