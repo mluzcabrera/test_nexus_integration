@@ -14,9 +14,9 @@ jobs:
       - name: Register Nexus artifact
         uses: cloudbees-io/register-build-artifact@v2
         with:
-          name: mlcb-nexus-test:${{cloudbees.version}}
-          version: ${{cloudbees.version}}
-          url: https://nexusoss.saas-preprod.beescloud.com//mlcb-nexus-test:${{cloudbees.version}}
+          name: aspm-test:1.0
+          version: 1.0
+          url: nexusoss.saas-preprod.beescloud.com//aspm-test:1.0
       - name: Print output parameter artifact ID from Nexus upload action
         uses: docker://alpine:latest
         shell: sh
