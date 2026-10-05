@@ -15,7 +15,7 @@ jobs:
         with:
           registry: nexusoss.saas-preprod.beescloud.com
           username: admin
-          password: ${{ secrets.NEXUS_PASSWORD }}
+          password: ${{ secrets.mlcb_nexus_pwd }}
       - id: build-container
         name: Build and push container image to Nexus
         uses: cloudbees-io/kaniko@v1
@@ -34,4 +34,4 @@ jobs:
         uses: docker://alpine:latest
         shell: sh
         run: |
-          echo "artifact ID for my-artifact is: ${{ steps.step1.outputs.artifact-id }}"
+          echo "artifact ID for my-artifact is: ${{ steps.build-container.outputs.artifact-id }}"
