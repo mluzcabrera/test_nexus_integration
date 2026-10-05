@@ -20,4 +20,4 @@ jobs:
         uses: docker://alpine:latest
         shell: sh
         run: |
-          echo "artifact ID for my-artifact is: ${{ steps.step1.outputs.artifact-ids }}"
+          echo "artifact ID for my-artifact is: ${{ steps.step1.outputs.artifact-id }}"
