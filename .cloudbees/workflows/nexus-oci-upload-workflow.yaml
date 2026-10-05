@@ -10,7 +10,20 @@ jobs:
     steps:
       - name: checkout-source-code
         uses: cloudbees-io/checkout@v1
-          
+      - name: Configure Nexus OCI credentials
+        uses: cloudbees-io/configure-oci-credentials@v1
+        with:
+          registry: nexusoss.saas-preprod.beescloud.com
+          username: admin
+          password: ${{ secrets.NEXUS_PASSWORD }}
+      - id: build-container
+        name: Build and push container image to Nexus
+        uses: cloudbees-io/kaniko@v1
+        with:
+          destination: nexusoss.saas-preprod.beescloud.com/aspm-test:1.0
+          build-args: USER=cbp-dev,TOKEN=${{ secrets.GH_SECURITY_PAT_MLCB }}
+          context: ${{ cloudbees.workspace }}
+          dockerfile: Dockerfile          
       - name: Register Nexus artifact
         uses: cloudbees-io/register-build-artifact@v2
         with:
