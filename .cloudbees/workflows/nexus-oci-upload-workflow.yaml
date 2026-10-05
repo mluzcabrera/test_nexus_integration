@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: checkout-source-code
         uses: cloudbees-io/checkout@v1
+          
       - name: Register Nexus artifact
         uses: cloudbees-io/register-build-artifact@v2
         with:
@@ -20,4 +21,4 @@ jobs:
         uses: docker://alpine:latest
         shell: sh
         run: |
-         echo "artifact ID for my-artifact is: ${{ steps.step1.outputs.artifact-id }}"
+          echo "artifact ID for my-artifact is: ${{ steps.step1.outputs.artifact-id }}"
